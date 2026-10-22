@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Manage — Jazaa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --brand:#2F4F7F; --accent:#EE7058; --on-accent:#2A2020; --link:#B83B24; --good:#2F6B4F;
+  --ink:#392D2D; --muted:#6B5C57; --bg:#F3E8D9; --surface:#FBF6EE; --soft:#EADCC8; --line:#D9C9B2;
+  --display:"Familjen Grotesk","Segoe UI",system-ui,sans-serif; --body:"Figtree","Segoe UI",system-ui,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root{--ink:#F3E8D9;--muted:#C2B2A2;--bg:#231B1B;--surface:#2D2323;--soft:#3A2D2D;--line:#54433F;--link:#F59A86;--good:#6FCF9E;color-scheme:dark}
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5}
+h1,h2,h3,h4{font-family:var(--display);margin:0;line-height:1.1;letter-spacing:-0.02em}
+p{margin:0}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid #FFB627;outline-offset:2px;border-radius:6px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1.5px solid var(--accent);background:var(--accent);color:var(--on-accent);padding:11px 18px;border-radius:10px;font-weight:700;text-decoration:none}
+.btn.line{background:transparent;color:inherit;border-color:currentColor}
+.btn.sm{padding:7px 13px;font-size:14px;border-radius:8px}
+.btn.dark{background:var(--brand);border-color:var(--brand);color:#fff}
+.btn[disabled]{opacity:.6;cursor:wait}
+
+/* login */
+.loginwrap{min-height:100vh;display:grid;place-items:center;padding:24px}
+.logincard{width:min(400px,100%);background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:28px;display:grid;gap:16px}
+.logincard h1{font-size:30px}
+.logincard .sub{color:var(--muted);font-size:15px}
+label{display:grid;gap:6px;font-weight:600;font-size:14px}
+input,select,textarea{font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;width:100%}
+.err{color:var(--link);font-weight:600;font-size:14px}
+
+/* app */
+.bar{display:flex;align-items:center;gap:12px;padding:12px 20px;background:var(--brand);color:#fff;position:sticky;top:0;z-index:10}
+.bar strong{font-family:var(--display);font-size:20px}
+.bar .sp{flex:1}
+.bar .btn.line{color:#fff}
+.body{display:grid;grid-template-columns:200px 1fr;min-height:calc(100vh - 58px)}
+.nav{border-right:1px solid var(--line);padding:16px 12px;display:flex;flex-direction:column;gap:4px;background:var(--surface)}
+.nav button{text-align:left;border:0;background:transparent;border-radius:8px;padding:10px 12px;font-weight:600}
+.nav button[aria-current=true]{background:var(--soft)}
+.main{padding:24px;overflow:auto}
+.main h2{font-size:28px;margin-bottom:6px}
+.main .sub{color:var(--muted);margin-bottom:18px;max-width:70ch}
+.tools{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+.tbl{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:15px}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:middle}
+th{font-size:13px;color:var(--muted);font-weight:600;background:var(--soft);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+td.act{white-space:nowrap;text-align:right}
+td.act button{margin-left:6px}
+.who{display:flex;align-items:center;gap:10px}
+.who small{display:block;color:var(--muted);font-size:12.5px}
+.av{flex:none;width:34px;height:34px;border-radius:9px;background:var(--soft);border:1px solid var(--line);display:grid;place-items:center;font-family:var(--display);font-weight:700;object-fit:contain}
+img.av{background:#fff;padding:3px}
+.upd{font-size:13px;color:var(--muted);white-space:nowrap}
+.empty{padding:28px;text-align:center;color:var(--muted)}
+.danger{border-color:var(--accent)!important;color:var(--link)!important}
+.danger.armed{background:var(--accent)!important;color:var(--on-accent)!important}
+.banner{background:var(--surface);border:1.5px dashed var(--brand);border-radius:14px;padding:20px;max-width:640px}
+.banner h3{font-size:22px;margin-bottom:8px}
+.banner p{color:var(--muted);margin-bottom:14px}
+.datarow{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+.hint{font-size:13px;color:var(--muted)}
+.f{display:grid;gap:14px;max-width:640px}
+.f label.cb{display:flex;gap:10px;align-items:center}
+.f input[type=checkbox]{width:19px;height:19px;accent-color:var(--accent)}
+.f .help{font-weight:400;color:var(--muted);font-size:12.5px}
+.f h4{font-size:17px;margin-top:6px;padding-top:12px;border-top:1px solid var(--line)}
+.imgfield{display:flex;gap:12px;align-items:center}
+.imgfield img{width:44px;height:44px;border-radius:10px;object-fit:contain;background:#fff}
+dialog{border:0;border-radius:18px;padding:0;background:var(--surface);color:var(--ink);width:min(600px,calc(100vw - 24px));max-height:calc(100vh - 24px);box-shadow:0 24px 80px rgba(0,0,0,.35)}
+dialog::backdrop{background:rgba(5,20,20,.6)}
+dialog form{padding:22px;display:grid;gap:16px;max-height:calc(100vh - 24px);overflow:auto}
+dialog h3{font-size:24px}
+.dlg-act{display:flex;justify-content:flex-end;gap:10px;position:sticky;bottom:-22px;background:var(--surface);padding:12px 0 0}
+#toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);background:var(--ink);color:var(--bg);padding:11px 18px;border-radius:10px;font-weight:600;opacity:0;pointer-events:none;transition:.25s;z-index:90}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:760px){.body{grid-template-columns:1fr;grid-template-rows:auto 1fr}.nav{flex-direction:row;overflow-x:auto;border-right:0;border-bottom:1px solid var(--line);padding:8px}.nav button{white-space:nowrap}.main{padding:16px}}
+</style>
+</head>
+<body>
+
+<div class="loginwrap" id="login" hidden>
+  <form class="logincard" id="loginForm">
+    <h1>Manage Jazaa</h1>
+    <p class="sub">Sign in to edit the site.</p>
+    <label>Username<input id="u" autocomplete="username" required></label>
+    <label>Password<input id="p" type="password" autocomplete="current-password" required></label>
+    <p class="err" id="loginErr" hidden></p>
+    <button class="btn" id="loginBtn" type="submit">Sign in</button>
+  </form>
+</div>
+
+<div id="app" hidden>
+  <div class="bar">
+    <strong>Manage Jazaa</strong><span class="sp"></span>
+    <a class="btn line sm" href="/" target="_blank" rel="noopener">View site</a>
+    <button class="btn line sm" id="logout">Sign out</button>
+  </div>
+  <div class="body">
+    <nav class="nav" id="nav" aria-label="Sections"></nav>
+    <div class="main" id="main"></div>
+  </div>
+</div>
+<dialog id="dlg"></dialog>
+<div id="toast" role="status"></div>
+
+<script>
+(function(){
+"use strict";
+var $=function(id){return document.getElementById(id)};
+function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function fdate(s){if(!s)return "";var d=new Date(s+"T00:00:00");return isNaN(d)?"":d.toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"})}
+function slug(s){return String(s).toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"")||"item"}
+function safeUrl(u){return /^https?:\/\//i.test(u||"")?u:""}
+function today(){return new Date().toISOString().slice(0,10)}
+function byOrder(a,b){return (a.order||0)-(b.order||0)||String(a.name||a.q||"").localeCompare(String(b.name||b.q||""))}
+var toastT;
+function toast(msg){var t=$("toast");t.textContent=msg;t.classList.add("show");clearTimeout(toastT);toastT=setTimeout(function(){t.classList.remove("show")},2800)}
+
+/* ---------- api ---------- */
+function api(path,opts){
+  opts=opts||{};opts.credentials="same-origin";
+  opts.headers=Object.assign({"x-requested-with":"jazaa"},opts.headers||{});
+  return fetch("/api/"+path,opts);
+}
+var D=null;
+function sortAll(){["features","providers","faqs"].forEach(function(k){D[k].sort(byOrder)})}
+async function saveAll(){
+  var r=await api("data",{method:"PUT",headers:{"content-type":"application/json"},body:JSON.stringify(D)});
+  if(r.status===401){showLogin("Your session ended. Please sign in again.");throw {auth:true}}
+  if(!r.ok){var j={};try{j=await r.json()}catch(x){}throw {message:j.error||"Couldn’t save."}}
+}
+async function upsert(col,id,data){
+  var prev=D[col].slice(),list=D[col],i=-1,k;
+  for(k=0;k<list.length;k++){if(list[k].id===id)i=k}
+  var rec=Object.assign({},data,{id:id});
+  if(i>-1)list[i]=rec;else list.push(rec);
+  try{await saveAll()}catch(x){D[col]=prev;throw x}
+  sortAll();render();
+}
+async function removeItem(col,id){
+  var prev=D[col].slice();
+  D[col]=D[col].filter(function(x){return x.id!==id});
+  try{await saveAll()}catch(x){D[col]=prev;throw x}
+  render();
+}
+function errText(x){return (x&&x.message)||"Couldn’t save. Please try again."}
+
+/* ---------- login ---------- */
+function showLogin(msg){
+  $("app").hidden=true;$("login").hidden=false;
+  var e=$("loginErr");e.textContent=msg||"";e.hidden=!msg;
+  $("u").focus();
+}
+async function start(){
+  var r=await api("data");
+  if(!r.ok)throw new Error("load");
+  D=await r.json();
+  D.settings=D.settings||{};D.features=D.features||[];D.providers=D.providers||[];D.faqs=D.faqs||[];
+  sortAll();
+  $("login").hidden=true;$("app").hidden=false;render();
+}
+$("loginForm").addEventListener("submit",async function(e){
+  e.preventDefault();
+  var b=$("loginBtn");b.disabled=true;$("loginErr").hidden=true;
+  try{
+    var r=await api("login",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({username:$("u").value,password:$("p").value})});
+    if(r.ok){$("p").value="";await start()}
+    else{var j={};try{j=await r.json()}catch(x){}var e2=$("loginErr");e2.textContent=j.error||"Sign-in failed.";e2.hidden=false}
+  }catch(x){var e3=$("loginErr");e3.textContent="Couldn’t reach the server.";e3.hidden=false}
+  b.disabled=false;
+});
+$("logout").addEventListener("click",async function(){try{await api("logout",{method:"POST"})}catch(x){}D=null;showLogin("")});
+(async function boot(){
+  try{var r=await api("session");if(r.ok){await start();return}}catch(x){}
+  showLogin("");
+})();
+
+/* ---------- data helpers ---------- */
+function provById(id){return D.providers.filter(function(p){return p.id===id})[0]}
+function featById(id){return D.features.filter(function(f){return f.id===id})[0]}
+function ranked(fid){
+  var f=featById(fid),ids=(f&&f.ranking)||[],out=[],seen={};
+  ids.forEach(function(id){var p=provById(id);if(p&&!seen[id]){out.push(p);seen[id]=1}});
+  return out;
+}
+function rankOf(fid,pid){var r=ranked(fid);for(var i=0;i<r.length;i++){if(r[i].id===pid)return i+1}return 0}
+function avatar(p){
+  if(p.logo)return '<img class="av" src="/api/img/'+esc(p.logo)+'" alt="">';
+  return '<span class="av" aria-hidden="true">'+esc((p.name||"?").charAt(0).toUpperCase())+'</span>';
+}
+function nameToProv(n){var k=String(n).trim().toLowerCase();return D.providers.filter(function(p){return String(p.name).toLowerCase()===k})[0]}
+
+/* ---------- admin screens ---------- */
+var A={tab:"providers",pending:null,pendingT:null};
+var TABS=[["providers","Providers"],["features","Lists"],["faqs","Questions"],["site","Site text"],["data","Backup"]];
+function render(){
+  if(!D)return;
+  $("nav").innerHTML=TABS.map(function(t){return '<button data-tab="'+t[0]+'" '+(A.tab===t[0]?'aria-current="true"':'')+'>'+t[1]+'</button>'}).join("");
+  $("main").innerHTML=({providers:pageProviders,features:pageFeatures,faqs:pageFaqs,site:pageSite,data:pageData})[A.tab]();
+}
+function delBtn(key){
+  var armed=A.pending===key;
+  return '<button class="btn line sm danger '+(armed?"armed":"")+'" data-act="del" data-key="'+esc(key)+'">'+(armed?"Confirm delete":"Delete")+'</button>';
+}
+function inLists(p){return D.features.filter(function(f){return rankOf(f.id,p.id)}).map(function(f){return f.name}).join(", ")||"None"}
+function pageProviders(){
+  return '<h2>Providers</h2><p class="sub">Add, edit or remove providers. A provider appears in a top-ten list once you add its name to that list under Lists.</p>'+
+    '<div class="tools"><button class="btn sm" data-act="add-provider">Add provider</button></div>'+
+    '<div class="tbl"><table><thead><tr><th>Provider</th><th>In lists</th><th>Checked</th><th></th></tr></thead><tbody>'+
+    (D.providers.length?D.providers.map(function(p){return '<tr><td><span class="who">'+avatar(p)+'<span><b>'+esc(p.name)+'</b><small>'+esc(p.tagline)+'</small></span></span></td><td>'+esc(inLists(p))+'</td><td class="upd">'+esc(fdate(p.updated))+'</td><td class="act"><button class="btn line sm" data-act="edit-provider" data-id="'+esc(p.id)+'">Edit</button>'+delBtn("providers/"+p.id)+'</td></tr>'}).join(""):'<tr><td colspan="4" class="empty">No providers yet.</td></tr>')+
+    '</tbody></table></div>';
+}
+function pageFeatures(){
+  return '<h2>Lists</h2><p class="sub">Each list has its own ranking, best pick and criteria. Add a new list or remove one.</p>'+
+    '<div class="tools"><button class="btn sm" data-act="add-feature">Add list</button></div>'+
+    '<div class="tbl"><table><thead><tr><th>List</th><th>Ranking, best first</th><th></th></tr></thead><tbody>'+
+    (D.features.length?D.features.map(function(f){return '<tr><td><b>'+esc(f.name)+'</b></td><td>'+(ranked(f.id).map(function(p){return esc(p.name)}).join(", ")||"Empty")+'</td><td class="act"><button class="btn line sm" data-act="edit-feature" data-id="'+esc(f.id)+'">Edit</button>'+delBtn("features/"+f.id)+'</td></tr>'}).join(""):'<tr><td colspan="3" class="empty">No lists yet.</td></tr>')+
+    '</tbody></table></div>';
+}
+function pageFaqs(){
+  return '<h2>Questions</h2><p class="sub">The FAQ list at the bottom of the page.</p>'+
+    '<div class="tools"><button class="btn sm" data-act="add-faq">Add question</button></div>'+
+    '<div class="tbl"><table><thead><tr><th>Order</th><th>Question</th><th></th></tr></thead><tbody>'+
+    (D.faqs.length?D.faqs.map(function(f){return '<tr><td>'+(f.order||0)+'</td><td>'+esc(f.q)+'</td><td class="act"><button class="btn line sm" data-act="edit-faq" data-id="'+esc(f.id)+'">Edit</button>'+delBtn("faqs/"+f.id)+'</td></tr>'}).join(""):'<tr><td colspan="3" class="empty">No questions yet.</td></tr>')+
+    '</tbody></table></div>';
+}
+var SITE_FIELDS=[
+  {k:"hd_brand",l:"Brand",t:"heading"},
+  {k:"brandName",l:"Site name",t:"text"},
+  {k:"brandLogo",l:"Logo",t:"image",h:"Square images work best. Remove it to go back to the default mark."},
+  {k:"hd_hero",l:"Top of the page",t:"heading"},
+  {k:"heroTitle",l:"Headline",t:"text"},
+  {k:"heroLede",l:"Intro text",t:"textarea"},
+  {k:"ctaPrimary",l:"First button",t:"text"},
+  {k:"ctaSecondary",l:"Second button",t:"text"},
+  {k:"navBest",l:"Menu: best picks",t:"text"},
+  {k:"navCompare",l:"Menu: compare",t:"text"},
+  {k:"navHow",l:"Menu: how we rank",t:"text"},
+  {k:"navFaq",l:"Menu: questions",t:"text"},
+  {k:"trust1",l:"Trust point 1",t:"text"},
+  {k:"trust2",l:"Trust point 2",t:"text"},
+  {k:"trust3",l:"Trust point 3",t:"text"},
+  {k:"hd_sections",l:"Section headings",t:"heading"},
+  {k:"bestTitle",l:"Best picks: heading",t:"text"},
+  {k:"bestText",l:"Best picks: text",t:"textarea",rows:2},
+  {k:"compareTitle",l:"Compare: heading",t:"text"},
+  {k:"compareText",l:"Compare: text",t:"textarea",rows:2},
+  {k:"howTitle",l:"How we rank: heading",t:"text"},
+  {k:"how1Title",l:"Step 1: title",t:"text"},
+  {k:"how1Text",l:"Step 1: text",t:"textarea",rows:2},
+  {k:"how2Title",l:"Step 2: title",t:"text"},
+  {k:"how2Text",l:"Step 2: text",t:"textarea",rows:2},
+  {k:"how3Title",l:"Step 3: title",t:"text"},
+  {k:"how3Text",l:"Step 3: text",t:"textarea",rows:2},
+  {k:"faqTitle",l:"Questions: heading",t:"text"},
+  {k:"hd_foot",l:"Footer",t:"heading"},
+  {k:"disclosure",l:"Disclosure",t:"textarea",rows:2,h:"Say so here if you or your company have ties to any listed provider. Leave empty to hide."},
+  {k:"noticeText",l:"Footer notice",t:"textarea",rows:2,h:"Shown in a box above the footer. Leave empty to hide it."},
+  {k:"footerNote",l:"Footer text",t:"text"},
+  {k:"shareUrl",l:"Public site link",t:"url",h:"Used by the Share buttons. Leave empty to use this site’s own address."}
+];
+function fieldHtml(f,v){
+  var h=f.h?'<span class="help">'+esc(f.h)+'</span>':"";
+  if(f.t==="heading")return '<h4>'+esc(f.l)+'</h4>';
+  if(f.t==="textarea")return '<label>'+esc(f.l)+'<textarea name="'+f.k+'" rows="'+(f.rows||3)+'">'+esc(v)+'</textarea>'+h+'</label>';
+  if(f.t==="checkbox")return '<label class="cb"><input type="checkbox" name="'+f.k+'" '+(v?"checked":"")+'> '+esc(f.l)+'</label>';
+  if(f.t==="image")return '<label>'+esc(f.l)+'<span class="imgfield"><span class="prev">'+(v?'<img src="/api/img/'+esc(v)+'" alt="">':'')+'</span><input type="hidden" name="'+f.k+'" value="'+esc(v)+'"><input type="file" accept="image/png,image/jpeg,image/webp,image/gif" data-upload="'+f.k+'"><button type="button" class="btn line sm" data-clear="'+f.k+'">Remove</button></span>'+h+'</label>';
+  return '<label>'+esc(f.l)+'<input type="'+(f.t||"text")+'" name="'+f.k+'" value="'+esc(v)+'" '+(f.t==="number"?'step="any"':'')+' '+(f.r?"required":"")+'>'+h+'</label>';
+}
+function pageSite(){
+  return '<h2>Site text</h2><p class="sub">Edit every piece of text on the site, plus the logo.</p><form class="f" id="siteForm">'+
+    SITE_FIELDS.map(function(f){return fieldHtml(f,D.settings[f.k]||"")}).join("")+'<div><button class="btn" type="submit">Save changes</button></div></form>';
+}
+function pageData(){
+  return '<h2>Backup</h2><p class="sub">Download everything as a file, restore from one, or go back to the starter content.</p>'+
+    '<div class="banner"><h3>'+D.providers.length+' providers, '+D.features.length+' lists, '+D.faqs.length+' questions</h3><p>Keep a backup before making big changes.</p>'+
+    '<div class="datarow"><button class="btn dark" data-act="export">Download backup</button>'+
+    '<label class="btn line sm" style="cursor:pointer;color:var(--ink)">Restore from file<input type="file" id="importFile" accept="application/json,.json" hidden></label>'+
+    '<button class="btn line sm danger '+(A.pending==="reset"?"armed":"")+'" data-act="reset">'+(A.pending==="reset"?"Confirm: replace everything":"Reset to starter content")+'</button></div>'+
+    '<p class="hint">Restoring adds or updates items with the same id and never deletes. Resetting replaces all content with the starter content.</p></div>';
+}
+
+/* ---------- forms ---------- */
+function readForm(form,fields){
+  var out={};
+  fields.forEach(function(f){
+    if(f.t==="heading")return;
+    var el=form.elements[f.k];if(!el)return;
+    if(f.t==="checkbox")out[f.k]=el.checked;
+    else if(f.t==="number"){var n=parseFloat(el.value);out[f.k]=isNaN(n)?0:n}
+    else out[f.k]=String(el.value).trim();
+  });
+  return out;
+}
+function openForm(o){
+  var d=$("dlg");
+  d.innerHTML='<form id="dlgForm" class="f" style="max-width:none"><h3>'+esc(o.title)+'</h3>'+o.fields.map(function(f){return fieldHtml(f,o.values[f.k]!=null?o.values[f.k]:"")}).join("")+'<p class="err" id="dlgErr" hidden></p><div class="dlg-act"><button type="button" class="btn line sm" id="dlgCancel">Cancel</button><button class="btn sm" type="submit" id="dlgSave">Save</button></div></form>';
+  d.showModal();
+  $("dlgCancel").onclick=function(){d.close()};
+  $("dlgForm").onsubmit=async function(ev){
+    ev.preventDefault();
+    var data=readForm($("dlgForm"),o.fields);
+    var err=o.validate&&o.validate(data);
+    if(err){var e=$("dlgErr");e.textContent=err;e.hidden=false;return}
+    $("dlgSave").disabled=true;
+    try{await o.save(data);d.close();toast("Saved")}
+    catch(x){if(x&&x.auth){d.close();return}var e2=$("dlgErr");e2.textContent=errText(x);e2.hidden=false;$("dlgSave").disabled=false}
+  };
+}
+document.addEventListener("change",async function(e){
+  var up=e.target.dataset&&e.target.dataset.upload;
+  if(up&&e.target.files&&e.target.files[0]){
+    var file=e.target.files[0],lab=e.target.closest(".imgfield");
+    if(file.size>1500000){toast("Images must be under 1.5 MB");e.target.value="";return}
+    lab.querySelector(".prev").textContent="Uploading…";
+    try{
+      var r=await api("upload",{method:"POST",headers:{"content-type":file.type},body:file});
+      var j=await r.json();
+      if(!r.ok)throw new Error(j.error||"Upload failed");
+      lab.querySelector('input[type=hidden]').value=j.id;
+      lab.querySelector(".prev").innerHTML='<img src="/api/img/'+esc(j.id)+'" alt="">';
+    }catch(x){lab.querySelector(".prev").textContent="";toast(x.message||"Upload failed")}
+  }
+  if(e.target.id==="importFile"){importData(e.target.files[0]);e.target.value=""}
+});
+document.addEventListener("click",function(e){
+  var c=e.target.closest&&e.target.closest("[data-clear]");
+  if(c){var lab=c.closest(".imgfield");lab.querySelector('input[type=hidden]').value="";lab.querySelector(".prev").innerHTML=""}
+});
+
+function providerFields(){
+  var f=[
+    {k:"name",l:"Provider name",t:"text",r:true},
+    {k:"tagline",l:"Short description",t:"text"},
+    {k:"url",l:"Website",t:"url",h:"Starts with https://"},
+    {k:"logo",l:"Logo",t:"image"},
+    {k:"price",l:"Pricing summary",t:"textarea",rows:2},
+    {k:"free",l:"Free plan or no annual fee",t:"checkbox"},
+    {k:"cbIntl",l:"International cashback (%)",t:"number",h:"Highest published rate. Use 0 if not published."},
+    {k:"cbLocal",l:"UAE cashback (%)",t:"number",h:"Highest published rate. Use 0 if not published."},
+    {k:"sources",l:"Sources",t:"text",h:"Where the information came from."},
+    {k:"updated",l:"Last checked",t:"date"},
+    {k:"order",l:"Catalogue order",t:"number",h:"Lower numbers appear first in the overview."}
+  ];
+  D.features.forEach(function(x){
+    f.push({k:"hd_"+x.id,l:x.name,t:"heading"});
+    f.push({k:"h_"+x.id,l:"Highlight (short)",t:"text",h:"One short line shown in lists and tables. Leave empty if this provider isn’t in this list."});
+    f.push({k:"d_"+x.id,l:"Details",t:"textarea"});
+  });
+  return f;
+}
+function editProvider(p){
+  var isNew=!p;
+  var maxO=D.providers.reduce(function(m,x){return Math.max(m,x.order||0)},0);
+  openForm({title:isNew?"Add provider":"Edit provider",fields:providerFields(),values:p?p:{free:false,cbIntl:0,cbLocal:0,updated:today(),order:maxO+1},
+    validate:function(d){if(!d.name)return "Provider name is required.";if(d.url&&!safeUrl(d.url))return "The website must start with https://";return ""},
+    save:function(d){
+      var id=p?p.id:slug(d.name);
+      if(!p&&provById(id))id=id+"-"+Math.random().toString(36).slice(2,6);
+      return upsert("providers",id,d);
+    }});
+}
+function altsToText(f){return (f.alts||[]).map(function(a){var p=provById(a.id);return p?p.name+" | "+a.label:""}).filter(Boolean).join("\n")}
+function editFeature(f){
+  var isNew=!f;
+  var maxO=D.features.reduce(function(m,x){return Math.max(m,x.order||0)},0);
+  var vals=isNew?{order:maxO+1,ranking:"",alts:"",criteria:""}:Object.assign({},f,{ranking:ranked(f.id).map(function(p){return p.name}).join("\n"),alts:altsToText(f)});
+  openForm({title:isNew?"Add list":"Edit "+f.name,values:vals,
+    fields:[
+      {k:"name",l:"List name",t:"text",r:true},
+      {k:"blurb",l:"Short description",t:"textarea",rows:2},
+      {k:"criteria",l:"Ranking criteria",t:"textarea",rows:4,h:"One per line, most important first."},
+      {k:"ranking",l:"Provider ranking",t:"textarea",rows:10,h:"One provider name per line, best first. The first line is the “Best pick”. Each provider needs a highlight for this list, which you add under Providers."},
+      {k:"why",l:"Why the best pick wins",t:"textarea"},
+      {k:"notes",l:"Worth knowing",t:"textarea",h:"Runner-up notes, caveats or exceptions."},
+      {k:"alts",l:"Also best if…",t:"textarea",rows:4,h:"One per line, as: Provider name | when it is best. Example: Wio Business | Best flat rate on smaller UAE spend"},
+      {k:"order",l:"Order on the page",t:"number",h:"Lower numbers appear first."}
+    ],
+    validate:function(d){
+      if(!d.name)return "List name is required.";
+      var names=d.ranking.split("\n").map(function(s){return s.trim()}).filter(Boolean);
+      for(var i=0;i<names.length;i++){if(!nameToProv(names[i]))return "Unknown provider: "+names[i]}
+      var al=d.alts.split("\n").map(function(s){return s.trim()}).filter(Boolean);
+      for(var j=0;j<al.length;j++){var nm=al[j].split("|")[0];if(!nameToProv(nm))return "Unknown provider in “Also best if”: "+nm.trim()}
+      return "";
+    },
+    save:function(d){
+      var ids=d.ranking.split("\n").map(function(s){return s.trim()}).filter(Boolean).map(function(n){return nameToProv(n).id});
+      var alts=d.alts.split("\n").map(function(s){return s.trim()}).filter(Boolean).map(function(l){var pr=l.split("|");return {id:nameToProv(pr[0]).id,label:(pr.slice(1).join("|")||"").trim()}});
+      var id=f?f.id:slug(d.name);
+      if(!f&&featById(id))id=id+"-"+Math.random().toString(36).slice(2,6);
+      return upsert("features",id,{name:d.name,blurb:d.blurb,criteria:d.criteria,why:d.why,notes:d.notes,order:d.order||0,ranking:ids,alts:alts});
+    }});
+}
+function editFaq(f){
+  var isNew=!f;
+  var maxO=D.faqs.reduce(function(m,x){return Math.max(m,x.order||0)},0);
+  openForm({title:isNew?"Add question":"Edit question",values:f?f:{order:maxO+1},
+    fields:[{k:"q",l:"Question",t:"text",r:true},{k:"a",l:"Answer",t:"textarea"},{k:"order",l:"Order",t:"number"}],
+    validate:function(d){return d.q?"":"The question is required."},
+    save:function(d){return upsert("faqs",f?f.id:"f"+Date.now().toString(36),d)}});
+}
+
+/* ---------- backup ---------- */
+function exportData(){
+  var blob=new Blob([JSON.stringify(D,null,2)],{type:"application/json"});
+  var a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="jazaa-backup-"+today()+".json";
+  document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(a.href)},2000);
+}
+async function importData(file){
+  if(!file)return;
+  try{
+    var j=JSON.parse(await file.text()),n=0,prev=JSON.stringify(D);
+    ["features","providers","faqs"].forEach(function(k){
+      (Array.isArray(j[k])?j[k]:[]).forEach(function(it){
+        if(!it||typeof it!=="object"||!it.id)return;
+        var i=-1;D[k].forEach(function(x,ix){if(x.id===it.id)i=ix});
+        if(i>-1)D[k][i]=it;else D[k].push(it);n++;
+      });
+    });
+    if(j.settings&&typeof j.settings==="object"){D.settings=Object.assign({},D.settings,j.settings);n++}
+    try{await saveAll()}catch(x){D=JSON.parse(prev);throw x}
+    sortAll();render();toast("Restored "+n+" items");
+  }catch(x){if(!(x&&x.auth))toast(x&&x.message?x.message:"That file couldn’t be restored")}
+}
+async function resetData(){
+  try{
+    var r=await fetch("/data/default.json",{cache:"no-store"});
+    var d=await r.json();var prev=D;D=d;
+    try{await saveAll()}catch(x){D=prev;throw x}
+    sortAll();render();toast("Reset to starter content");
+  }catch(x){if(!(x&&x.auth))toast(errText(x))}
+}
+
+/* ---------- events ---------- */
+$("nav").addEventListener("click",function(e){var b=e.target.closest("[data-tab]");if(!b)return;A.tab=b.dataset.tab;A.pending=null;render()});
+$("main").addEventListener("submit",async function(e){
+  if(e.target.id!=="siteForm")return;
+  e.preventDefault();
+  var data=readForm(e.target,SITE_FIELDS);
+  if(data.shareUrl&&!safeUrl(data.shareUrl)){toast("The public link must start with https://");return}
+  var prev=D.settings;D.settings=Object.assign({},D.settings,data);
+  try{await saveAll();toast("Saved")}catch(x){D.settings=prev;if(!(x&&x.auth))toast(errText(x))}
+});
+$("main").addEventListener("click",async function(e){
+  var b=e.target.closest("[data-act]");if(!b)return;
+  var act=b.dataset.act,id=b.dataset.id;
+  if(act==="export")return exportData();
+  if(act==="add-provider")return editProvider(null);
+  if(act==="edit-provider")return editProvider(provById(id));
+  if(act==="add-feature")return editFeature(null);
+  if(act==="edit-feature")return editFeature(featById(id));
+  if(act==="add-faq")return editFaq(null);
+  if(act==="edit-faq")return editFaq(D.faqs.filter(function(f){return f.id===id})[0]);
+  var arm=function(key){A.pending=key;clearTimeout(A.pendingT);A.pendingT=setTimeout(function(){A.pending=null;render()},3500);render()};
+  if(act==="reset"){if(A.pending!=="reset")return arm("reset");A.pending=null;return resetData()}
+  if(act==="del"){
+    var key=b.dataset.key;
+    if(A.pending!==key)return arm(key);
+    A.pending=null;
+    var parts=key.split("/");
+    try{await removeItem(parts[0],parts.slice(1).join("/"));toast("Deleted")}catch(x){if(!(x&&x.auth))toast(errText(x))}
+  }
+});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "jazaa",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Jazaa: UAE business card and spend tool comparison site with a password-protected /manage editor.",
+  "scripts": {
+    "dev": "netlify dev",
+    "deploy": "netlify deploy --prod"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^8.1.0"
+  },
+  "engines": { "node": ">=18" }
+}

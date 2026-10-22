@@ -1,0 +1,476 @@
+{
+  "settings": {
+    "heroTitle": "The best UAE business cards and spend tools, ranked by what each does best.",
+    "heroLede": "Four top-ten lists: corporate cards, spend management, international payments, and cashback and rewards. Ranked on published terms, with the reasoning shown.",
+    "trust1": "Ranked on what providers publish, with the reasoning shown",
+    "trust2": "A different provider can win each list",
+    "trust3": "You sign up with the provider, never with us",
+    "disclosure": "",
+    "noticeText": "Information comes from provider websites and third-party reviews, last checked 22 Oct 2026. Rankings are our reading of published terms, not hands-on tests, and providers may change them. Confirm current terms before you sign up.",
+    "footerNote": "Jazaa is a comparison service. It is not a bank, card issuer or payment provider. © 2026",
+    "shareUrl": "",
+    "brandName": "Jazaa",
+    "brandLogo": "",
+    "navBest": "Best for",
+    "navCompare": "Compare",
+    "navHow": "How we rank",
+    "navFaq": "FAQ",
+    "ctaPrimary": "See the best picks",
+    "ctaSecondary": "Compare all providers",
+    "bestTitle": "Which is best for what?",
+    "bestText": "A different provider can win each list. Every pick shows its reasoning and who else is worth a look.",
+    "compareTitle": "Top ten for each feature",
+    "compareText": "Open a list for the full ranking, or use the overview to see every provider at once. Tick two or three to compare them in detail.",
+    "howTitle": "How we rank",
+    "how1Title": "We read what providers publish",
+    "how1Text": "Pricing, product and help pages first, then reputable third-party reviews. The check date and sources are shown for every provider.",
+    "how2Title": "We rank each list on stated criteria",
+    "how2Text": "Every list shows its criteria, in order of importance. We don’t pick one provider to win everything.",
+    "how3Title": "You sign up with the provider",
+    "how3Text": "Jazaa is a comparison service. It doesn’t issue cards, move money or guarantee approval.",
+    "faqTitle": "Questions"
+  },
+  "features": [
+    {
+      "id": "cards",
+      "order": 1,
+      "name": "Corporate cards",
+      "blurb": "How many cards you can issue, which types, and what they cost.",
+      "criteria": "Cost and number of cards you can issue\nCard types: virtual, physical, single-use, credit and prepaid\nSpend controls on each card\nClarity of published terms",
+      "ranking": [
+        "alaan",
+        "pemo",
+        "mamo",
+        "pluto",
+        "qashio",
+        "wio",
+        "xpence",
+        "rakbank",
+        "enbd",
+        "bayzat"
+      ],
+      "why": "Alaan says it issues unlimited physical and virtual cards at no extra cost, with Apple Pay support. Few rivals publish both unlimited physical and unlimited virtual issuance.",
+      "notes": "Pemo is close, with four card types, though one version of its plan table limits physical cards on lower tiers. Qashio, Wio Business and the banks offer credit cards, which suit larger limits.",
+      "alts": [
+        {
+          "id": "wio",
+          "label": "Best if you want a credit card with cashback"
+        },
+        {
+          "id": "mamo",
+          "label": "Best if you also collect customer payments"
+        }
+      ]
+    },
+    {
+      "id": "spend",
+      "order": 2,
+      "name": "Spend management",
+      "blurb": "Approvals, receipts, controls, VAT and accounting integrations.",
+      "criteria": "Receipt capture, approvals and policy controls\nAccounting and ERP integrations, including VAT handling\nBreadth: invoices, payables, petty cash, reimbursements\nPricing transparency",
+      "ranking": [
+        "pemo",
+        "pluto",
+        "alaan",
+        "qashio",
+        "zoho",
+        "xpence",
+        "mamo",
+        "bayzat",
+        "greythr",
+        "quickbooks"
+      ],
+      "why": "Pemo publishes the widest set of spend tools in one product: AI receipt matching, multi-layer approvals, VAT visibility, accounting sync, invoice management and a free starter tier.",
+      "notes": "The top four are close. Pluto adds payables, petty cash and procurement, Alaan pairs AI coding with ERP integrations, and Qashio publishes the most per-card accounting controls.",
+      "alts": [
+        {
+          "id": "qashio",
+          "label": "Best for large ERP setups such as SAP, Oracle and NetSuite"
+        },
+        {
+          "id": "pluto",
+          "label": "Best if you also need payables and petty cash"
+        },
+        {
+          "id": "zoho",
+          "label": "Best low-cost option for small teams"
+        }
+      ]
+    },
+    {
+      "id": "intl",
+      "order": 3,
+      "name": "International payments",
+      "blurb": "Paying suppliers and spending abroad: fees, currencies and countries.",
+      "criteria": "Published cost of international payments and FX\nCurrencies and countries covered\nForeign-currency accounts and hedging\nFX terms on cards",
+      "ranking": [
+        "pluto",
+        "hubpay",
+        "wio",
+        "payoneer",
+        "bayzat",
+        "mamo",
+        "alaan",
+        "qashio",
+        "xpence",
+        "pemo"
+      ],
+      "why": "Pluto is the only provider here that publishes free international payments (150+ countries, 140+ currencies) together with no card FX fee and cashback on foreign spend.",
+      "notes": "‘Free’ carries terms, so check limits and the rate used. Hubpay is a cross-border specialist with 30+ currency IBANs and FX hedging, but publishes no prices. Wio publishes explicit SWIFT fees.",
+      "alts": [
+        {
+          "id": "hubpay",
+          "label": "Best for regular supplier payments and FX hedging"
+        },
+        {
+          "id": "payoneer",
+          "label": "Best for receiving client and marketplace payments"
+        },
+        {
+          "id": "wio",
+          "label": "Best for clear, published SWIFT fees"
+        }
+      ]
+    },
+    {
+      "id": "cashback",
+      "order": 4,
+      "name": "Cashback and rewards",
+      "blurb": "Cashback rates, caps, and what the rewards can be exchanged for.",
+      "criteria": "Cashback rate on international and UAE spend\nCaps and conditions\nRedemption options: cash, miles, points\nAvailability and eligibility",
+      "ranking": [
+        "qashio",
+        "alaan",
+        "wio",
+        "mamo",
+        "pluto",
+        "pemo",
+        "rakbank",
+        "enbd",
+        "bayzat",
+        "xpence"
+      ],
+      "why": "Qashio publishes uncapped cashback on both international (up to 2%) and UAE (up to 1%) spend, plus points that convert to cash or to Skywards, Shukran and Avios miles.",
+      "notes": "Alaan lists similar rates without the miles option. Wio’s flat 2% beats both on UAE spend up to its monthly cashback cap, but it is a credit product by application.",
+      "alts": [
+        {
+          "id": "wio",
+          "label": "Best flat rate on smaller UAE spend"
+        },
+        {
+          "id": "enbd",
+          "label": "Best if your team flies Emirates"
+        }
+      ]
+    }
+  ],
+  "providers": [
+    {
+      "id": "alaan",
+      "order": 1,
+      "name": "Alaan",
+      "tagline": "Corporate cards with AI expense coding",
+      "url": "https://www.alaan.com",
+      "price": "Free starter plan reported. Paid plans on request.",
+      "free": true,
+      "cbIntl": 2,
+      "cbLocal": 1,
+      "h_cards": "Unlimited physical and virtual cards",
+      "d_cards": "Says it issues unlimited prepaid physical and virtual cards instantly at no extra cost. Cards work with Apple Pay.",
+      "h_spend": "AI coding with ERP integrations",
+      "d_spend": "Automated receipt collection and categorisation, approval policies and VAT workflows, with integrations to QuickBooks, Sage, MS Dynamics, NetSuite and Xero.",
+      "h_intl": "Foreign-currency spend with cashback",
+      "d_intl": "Manages non-AED spend such as AWS, Meta and LinkedIn in one place with cashback. A Hubpay executive says the two have partnered on cross-border transfers.",
+      "h_cashback": "Up to 2% international, 1% UAE",
+      "d_cashback": "Kredit’s 2025 review lists 2% international and 1% domestic, both unlimited. Alaan’s own pages say up to 2% uncapped, sometimes on all card spend and sometimes on foreign-currency spend.",
+      "sources": "alaan.com; kredit.ae (2025)",
+      "updated": "2026-10-22"
+    },
+    {
+      "id": "bayzat",
+      "order": 2,
+      "name": "Bayzat",
+      "tagline": "HR, payroll and finance in one platform",
+      "url": "https://www.bayzat.com",
+      "price": "Not published.",
+      "free": false,
+      "cbIntl": 0,
+      "cbLocal": 0,
+      "h_cards": "Cards inside Bayzat Finance",
+      "d_cards": "Bayzat’s card page lists unlimited cards with limits, approvers and cost centres. A finance page still labels cards as coming soon, so confirm availability.",
+      "h_spend": "Expenses flow into payroll",
+      "d_spend": "Approved expenses flow into payroll, with custom approval chains, OCR receipt capture and mobile submissions. Out-of-policy card spend can be recovered on payroll.",
+      "h_intl": "30 global accounts and cross-border payments",
+      "d_intl": "Multi-currency accounts, global payments and accounts payable with lower FX rates, and same-day remittance. Rates aren’t published.",
+      "h_cashback": "No rewards published",
+      "d_cashback": "Bayzat doesn’t publish a cashback or rewards programme.",
+      "sources": "bayzat.com; greytHR comparison",
+      "updated": "2026-10-22"
+    },
+    {
+      "id": "enbd",
+      "order": 3,
+      "name": "Emirates NBD",
+      "tagline": "Business credit and corporate cards",
+      "url": "https://www.emiratesnbd.com",
+      "price": "Annual fees vary by card, so check with the bank.",
+      "free": false,
+      "cbIntl": 0,
+      "cbLocal": 0,
+      "h_cards": "Business credit and corporate cards",
+      "d_cards": "Offers business credit cards plus Visa and Mastercard corporate cards. One review lists an annual fee of AED 1,500 with waivers tied to spend, and suggests it suits established companies.",
+      "h_cashback": "Points: 2 per $5 on Emirates travel",
+      "d_cashback": "The Business Rewards card earns 2 points per $5 on Emirates bookings, 1 per $5 on general spend and 0.25 per $5 on utilities, government and education, with no monthly cap (Kredit, 2025).",
+      "sources": "kredit.ae (2025); dubaisouthbh.com",
+      "updated": "2026-10-22"
+    },
+    {
+      "id": "greythr",
+      "order": 4,
+      "name": "greytHR",
+      "tagline": "HR and payroll with an expense module",
+      "url": "https://www.greythr.com/middle-east/",
+      "price": "From about USD 80/month for 25 employees, per greytHR.",
+      "free": false,
+      "cbIntl": 0,
+      "cbLocal": 0,
+      "h_spend": "Expenses inside HR and payroll",
+      "d_spend": "AI receipt capture, multi-level approvals and policy rules, with approved expenses flowing into payroll. Free trial available. Not a card programme.",
+      "sources": "greythr.com",
+      "updated": "2026-10-22"
+    },
+    {
+      "id": "hubpay",
+      "order": 5,
+      "name": "Hubpay",
+      "tagline": "UAE cross-border payments and corporate FX",
+      "url": "https://www.hubpay.ae",
+      "price": "Not published.",
+      "free": false,
+      "cbIntl": 0,
+      "cbLocal": 0,
+      "h_intl": "30+ currency IBANs and FX hedging",
+      "d_intl": "UAE-licensed platform with named IBANs in 30+ currencies, corporate FX with forward contracts and hedging, international payroll and payment links, plus an Africa collect-and-remit service.",
+      "sources": "yespress.io; Arabian Business; IBS Intelligence",
+      "updated": "2026-10-22"
+    },
+    {
+      "id": "mamo",
+      "order": 6,
+      "name": "Mamo",
+      "tagline": "Payments and corporate cards in one account",
+      "url": "https://www.mamopay.com",
+      "price": "Free entry plan. Extra cards cost AED 19/month each, AED 9 on Growth, and are free on the top plan.",
+      "free": true,
+      "cbIntl": 2,
+      "cbLocal": 0.5,
+      "h_cards": "Visa credit and debit, unlimited on top plan",
+      "d_cards": "Physical, virtual, debit and credit cards, with card APIs. One free card on the entry plan, three on Growth, unlimited free on the top plan.",
+      "h_spend": "Free expense tools and instant top-ups",
+      "d_spend": "Real-time dashboard, limits per card and free expense management tools, with cards topped up from payments you collect through Mamo.",
+      "h_intl": "No card FX fee",
+      "d_intl": "No foreign-transaction fee on cards, though standard exchange rates apply. International ATM withdrawals cost AED 20. You can collect in non-AED currencies and settle in AED or USD.",
+      "h_cashback": "Up to 2% non-AED, 0.5% AED",
+      "d_cashback": "Premium plan: 2% non-AED and 0.5% AED, uncapped. Growth plan: 1% and 0.4%. New card users get 8% for the first 3 months.",
+      "sources": "mamopay.com (pricing) and help.mamopay.com",
+      "updated": "2026-10-22"
+    },
+    {
+      "id": "payoneer",
+      "order": 7,
+      "name": "Payoneer",
+      "tagline": "Global receiving accounts and payouts",
+      "url": "https://www.payoneer.com",
+      "price": "No monthly fee typically. An annual fee applies if you receive under USD 6,000 in 12 months.",
+      "free": true,
+      "cbIntl": 0,
+      "cbLocal": 0,
+      "h_intl": "Receive in 22 currencies from 190+ countries",
+      "d_intl": "Receiving accounts in 22 currencies, including AED, and payments from clients in 190+ countries across 70+ currencies. Fees vary by currency and method and show in your account. Client card payments can cost up to 3.99%.",
+      "sources": "payoneer.com; dodopayments.com (Apr 2026)",
+      "updated": "2026-10-22"
+    },
+    {
+      "id": "pemo",
+      "order": 8,
+      "name": "Pemo",
+      "tagline": "Cards, expenses and accounting in one platform",
+      "url": "https://www.pemo.io",
+      "price": "Free Starter plan. Premium AED 399/month per company. Enterprise from AED 1,500/month.",
+      "free": true,
+      "cbIntl": 2,
+      "cbLocal": 0,
+      "h_cards": "Four card types, unlimited virtual",
+      "d_cards": "Mastercard virtual, physical, single-use and pre-funded cards issued by NymCard, with Apple, Google and Samsung Pay. One version of its plan table limits physical cards on lower tiers.",
+      "h_spend": "AI receipts, approvals and accounting sync",
+      "d_spend": "AI receipt matching, multi-layer approval workflows, VAT visibility, spend limits per card and per purchase, accounting sync and invoice management.",
+      "h_intl": "International cards for staff abroad",
+      "d_intl": "Lists international cards for employees outside the UAE. Pemo’s pricing page doesn’t publish FX fees.",
+      "h_cashback": "Up to 2% on higher plans",
+      "d_cashback": "Up to 2% cashback on business transactions, with the highest rate on paid plans. Also lists discounts on 100+ software tools and travel perks.",
+      "sources": "pemo.io (home and pricing pages)",
+      "updated": "2026-10-22"
+    },
+    {
+      "id": "pluto",
+      "order": 9,
+      "name": "Pluto",
+      "tagline": "Cards, payables and petty cash",
+      "url": "https://www.plutocard.io",
+      "price": "Free plan reported for up to 5 card users. Paid tiers on request.",
+      "free": true,
+      "cbIntl": 2,
+      "cbLocal": 0,
+      "h_cards": "Unlimited smart cards with budgets",
+      "d_cards": "Virtual and physical cards with per-card budgets and category limits, usable wherever Visa or Mastercard is accepted.",
+      "h_spend": "Cards, payables and petty cash",
+      "d_spend": "Corporate cards, reimbursements, accounts payable, petty cash and procurement in one platform, with direct accounting sync such as Wafeq.",
+      "h_intl": "Free payments to 150+ countries",
+      "d_intl": "Advertises free international payments to 150+ countries and wires in 140+ currencies. A 2023 company announcement also says there is no FX fee on card spend.",
+      "h_cashback": "Up to 2% on non-AED spend",
+      "d_cashback": "Unlimited cashback of up to 2% on spend in 100+ currencies. Pluto’s pages mark the rate with a footnote, so read the terms.",
+      "sources": "plutocard.io; IBS Intelligence, Aug 2023",
+      "updated": "2026-10-22"
+    },
+    {
+      "id": "qashio",
+      "order": 10,
+      "name": "Qashio",
+      "tagline": "Corporate cards with ERP-ready spend management",
+      "url": "https://www.qashio.com",
+      "price": "Free Starter plan. Paid plans are listed on qashio.com/pricing.",
+      "free": true,
+      "cbIntl": 2,
+      "cbLocal": 1,
+      "h_cards": "Visa cards, unlimited on top plans",
+      "d_cards": "Prepaid Visa cards issued by NymCard, virtual or physical. Cards per user: 2 on Starter, 5 on Premium, unlimited on Business+. A third-party review also lists a Qashio credit card with limits up to AED 1 million.",
+      "h_spend": "Per-card limits and ERP mapping",
+      "d_spend": "Purchase, merchant and category limits per card, chart-of-accounts mapping per card, and integrations including NetSuite, SAP, Xero, Zoho, Odoo and Oracle.",
+      "h_intl": "Multi-currency wallets",
+      "d_intl": "Wallets in USD, EUR, GBP and SAR. Qashio describes its FX rates as low but doesn’t publish a figure.",
+      "h_cashback": "Up to 2% international, up to 1% UAE",
+      "d_cashback": "Uncapped, per Qashio’s offer page. Qashio Points convert to cashback (300 points for AED 10) or to Emirates Skywards, Shukran and Avios miles.",
+      "sources": "qashio.com (pricing, rewards and offer pages)",
+      "updated": "2026-10-22"
+    },
+    {
+      "id": "quickbooks",
+      "order": 11,
+      "name": "QuickBooks",
+      "tagline": "Accounting with basic expense tracking",
+      "url": "https://quickbooks.intuit.com/ae/",
+      "price": "From about USD 33/month for 25 employees (estimate).",
+      "free": false,
+      "cbIntl": 0,
+      "cbLocal": 0,
+      "h_spend": "Accounting-first expense tracking",
+      "d_spend": "Imports bank and card transactions, matches receipts and categorises with AI assistance. Multi-level approvals are limited and claims need the Advanced plan, per greytHR’s review.",
+      "sources": "greytHR comparison (2026)",
+      "updated": "2026-10-22"
+    },
+    {
+      "id": "rakbank",
+      "order": 12,
+      "name": "RAKBANK",
+      "tagline": "Titanium Business credit card",
+      "url": "https://www.rakbank.ae",
+      "price": "No annual fee reported.",
+      "free": true,
+      "cbIntl": 1,
+      "cbLocal": 1,
+      "h_cards": "No-annual-fee business credit card",
+      "d_cards": "The Titanium Business Credit Card is described as free for life, with a credit card cheque facility.",
+      "h_cashback": "Up to 1%, capped at AED 1,000 a month",
+      "d_cashback": "Up to 1% on general domestic and international retail spend (to AED 1,000 a month) and 0.25% on categories such as government, bills, education, telecom and fuel. Redemption threshold AED 100.",
+      "sources": "kredit.ae (2025); insurancemarket.ae",
+      "updated": "2026-10-22"
+    },
+    {
+      "id": "wio",
+      "order": 13,
+      "name": "Wio Business",
+      "tagline": "Digital business bank",
+      "url": "https://www.wio.io/business/",
+      "price": "Plans: Essential AED 99/month, Grow AED 249/month. Credit card by application.",
+      "free": false,
+      "cbIntl": 2,
+      "cbLocal": 2,
+      "h_cards": "Business credit card with 2% cashback",
+      "d_cards": "Wio Business Credit offers a credit card with 2% cashback on everything. Wio says a credit decision takes up to three business days.",
+      "h_intl": "Multi-currency accounts, SWIFT from AED 26.25",
+      "d_intl": "Free multi-currency accounts in AED, USD, EUR, GBP, CAD, AUD and CHF. SWIFT transfers cost AED 52.50 on Essential or AED 26.25 on Grow, plus correspondent bank fees. AED to USD is guaranteed at 3.673.",
+      "h_cashback": "2% flat, up to AED 2,000 a month",
+      "d_cashback": "2% cashback on everything, capped at AED 2,000 of cashback each month, which is about AED 100,000 of spend.",
+      "sources": "wio.io (business, fees and financing pages)",
+      "updated": "2026-10-22"
+    },
+    {
+      "id": "xpence",
+      "order": 14,
+      "name": "Xpence",
+      "tagline": "Visa cards, invoicing and bookkeeping",
+      "url": "https://xpence.com",
+      "price": "Not published.",
+      "free": false,
+      "cbIntl": 0,
+      "cbLocal": 0,
+      "h_cards": "Visa virtual and physical cards",
+      "d_cards": "Issues virtual and physical Visa cards to employees with individual spending controls and limits, per its UAE launch coverage.",
+      "h_spend": "Receipt capture, invoicing and bookkeeping",
+      "d_spend": "Automated receipt capture and categorisation, digital invoicing and automated bookkeeping. AI categorisation is claimed. Pricing isn’t published.",
+      "h_intl": "Multi-currency wallets",
+      "d_intl": "Multi-currency wallets alongside cards, per launch coverage. FX terms aren’t published.",
+      "h_cashback": "No rewards published",
+      "d_cashback": "Xpence doesn’t publish a cashback or rewards programme.",
+      "sources": "gulfnews.com; zoftwarehub.com",
+      "updated": "2026-10-22"
+    },
+    {
+      "id": "zoho",
+      "order": 15,
+      "name": "Zoho Expense",
+      "tagline": "Expense reports, budgets and card reconciliation",
+      "url": "https://www.zoho.com/ae/expense/",
+      "price": "Free for 3 users. Standard AED 11/user/month billed annually (AED 18 monthly). Premium AED 22 (AED 33 monthly).",
+      "free": true,
+      "cbIntl": 0,
+      "cbLocal": 0,
+      "h_spend": "Free for 3 users, with VAT tracking",
+      "d_spend": "Receipt autoscan, VAT tracking, corporate card management and reconciliation, multi-level approvals and budgets. A reporting and reimbursement tool rather than a card issuer.",
+      "sources": "zoho.com/ae/expense (pricing)",
+      "updated": "2026-10-22"
+    }
+  ],
+  "faqs": [
+    {
+      "id": "f1",
+      "q": "What is Jazaa?",
+      "a": "An independent comparison of UAE business cards and spend tools. It lines up what providers publish about corporate cards, spend management, international payments and cashback.",
+      "order": 1
+    },
+    {
+      "id": "f2",
+      "q": "How do you decide who is best?",
+      "a": "Each list has stated criteria, shown in order of importance. We compare what providers publish against those criteria. A pick is our reading of published information, not a hands-on test, and it can change when providers update their plans.",
+      "order": 2
+    },
+    {
+      "id": "f3",
+      "q": "Why isn’t one provider first everywhere?",
+      "a": "Because the lists measure different things. A provider that leads on cashback may not lead on international payments. Each list also names who is best for specific situations.",
+      "order": 3
+    },
+    {
+      "id": "f4",
+      "q": "Is it free to use?",
+      "a": "Yes. Browsing and comparing is free. You sign up directly with the provider you choose.",
+      "order": 4
+    },
+    {
+      "id": "f5",
+      "q": "Why does a provider say a rate is not published?",
+      "a": "Some providers don’t list a figure on their public pages, or list it differently in different places. We say so rather than guess. Ask the provider for the current number.",
+      "order": 5
+    }
+  ]
+}
